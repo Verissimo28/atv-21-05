@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+struct No {
+    int dado;             
+    struct No *proximo;   
+};
+
+void imprimirObras(struct No *head) {
+    struct No *atual = head;
+
+    while (atual != NULL) {
+        printf("Protocolo: %d\n", atual->dado);
+        atual = atual->proximo;
+    }
+}
