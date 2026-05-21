@@ -1,25 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 struct No {
     int dado;
     struct No *proximo;
 };
 
-void inserirApos(struct No *head, int id_alvo, int novo_id) {
+int buscarCidadao(struct No *head, int cpf_buscado) {
     struct No *atual = head;
 
-    while (atual != NULL && atual->dado != id_alvo) {
+    while (atual != NULL) {
+
+        if (atual->dado == cpf_buscado) {
+            return 1;
+        }
+
         atual = atual->proximo;
     }
 
-    if (atual != NULL) {
-
-        struct No *novo = (struct No *) malloc(sizeof(struct No));
-
-        novo->dado = novo_id;
-
-        novo->proximo = atual->proximo;
-        atual->proximo = novo;
-    }
+    return 0;
 }
