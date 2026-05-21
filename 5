@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct No {
+    int dado;
+    struct No *proximo;
+};
+
+void removerCpf(struct No **head, int cpf_alvo) {
+
+    struct No *atual = *head;
+    struct No *anterior = NULL;
+
+    while (atual != NULL && atual->dado != cpf_alvo) {
+        anterior = atual;
+        atual = atual->proximo;
+    }
+
+    if (atual == NULL) {
+        return;
+    }
+
+    if (anterior == NULL) {
+        *head = atual->proximo;
+    }
+    else {
+        anterior->proximo = atual->proximo;
+    }
+
+    free(atual);
+}
