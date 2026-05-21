@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+struct No {
+    int dado;
+    struct No *proximo;
+};
+
+int contarFila(struct No *head) {
+    int contador = 0;
+    struct No *atual = head;
+
+    while (atual != NULL) {
+        contador++;
+        atual = atual->proximo;
+    }
+
+    return contador;
+}
